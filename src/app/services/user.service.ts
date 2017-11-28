@@ -10,7 +10,7 @@ export class UserService {
 
   userURL="https://jsonplaceholder.typicode.com/users"
   postURL ="https://jsonplaceholder.typicode.com/posts"
-
+  commentsURL="https://jsonplaceholder.typicode.com/comments";
   constructor(private http:Http) { }
 
 
@@ -27,7 +27,8 @@ export class UserService {
 
 
   getPostbyId(id:number){
-    const url = `${this.postURL}?id=${id}`
+    const url = `${this.postURL}?userId=${id}`
+    //console.log(url)
     return this.http.get(url).map((response:Response)=>
     {  
       return response;
@@ -35,7 +36,15 @@ export class UserService {
   ).catch(this.handleError);
   }
 
-
+  getCommentsbyPostId(id:number){
+    const url = `${this.commentsURL}?postId=${id}`
+    console.log(url)
+    return this.http.get(url).map((response:Response)=>
+    {  
+      return response;
+    }
+  ).catch(this.handleError);
+  }
   
   //FUNCTION FROM ANGULAR.IO 
   private handleError (error: Response | any) {

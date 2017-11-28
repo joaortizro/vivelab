@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import {UsersComponent} from './users.component'
-
+import {UserComponent} from './user/user.component'
 const usersRoutes: Routes = [
     {
         path: '',
-        component: UsersComponent
+        component: UsersComponent,
+        
     },
+    {
+        path: ':id',
+        loadChildren: './user/user.module#UserModule'
+
+    }
+    
 
 ];
 

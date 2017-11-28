@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import { MaterializeModule } from 'angular2-materialize';
+import { HttpModule } from '@angular/http';
 @NgModule({
   imports: [
     BrowserModule,
@@ -15,6 +16,9 @@ import { MaterializeModule } from 'angular2-materialize';
   declarations: [
     AppComponent,
     PageNotFoundComponent
+  ],
+  exports:[
+    HttpModule
   ],
 
   providers: [],
